@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
-import { useMatch } from "./Match";
 
-export function Case({ match, children, matched }) {
-  const value = useMatch();
-
+export function Case({ value, match, children, matched }) {
   useEffect(() => {
     if (match === value) {
       matched();

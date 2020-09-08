@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useMatch } from "./Match";
 
 function useFound() {
   const [found, setFound] = useState(false);
@@ -10,6 +11,7 @@ function useFound() {
 
 export function Switch({ children }) {
   const [found, onFound] = useFound();
+  const value = useMatch();
 
   return React.Children.map(children, (child) => {
     if (typeof child.type === "string") {
@@ -18,6 +20,7 @@ export function Switch({ children }) {
 
     return React.cloneElement(child, {
       found,
+      value,
       matched: onFound,
     });
   });
