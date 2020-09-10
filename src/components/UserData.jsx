@@ -10,6 +10,7 @@ export function UserData({ name, children }) {
       <Case match="user">is user</Case>
       <Case match="superuser">is super user!</Case>
       <Default>who are you?!</Default>
+
       <>{children}</>
     </Switch>
   );

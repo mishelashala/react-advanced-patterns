@@ -1,14 +1,14 @@
+import { UserService } from "../services/UserService";
 import {
   createFetchActions,
   usePromiseEffectReducer,
 } from "./usePromiseEffectReducer";
-import { UserService } from "../services/UserService";
 
 const userService = UserService();
 
 const userActions = createFetchActions("user_data");
 
-function userReducer(state = initialUserState, action) {
+export function userReducer(state = initialUserState, action) {
   switch (action.type) {
     case userActions.SUCCESS:
       return { ...state, loading: false, data: action.payload, error: null };
@@ -40,5 +40,5 @@ export function useUser() {
     []
   );
 
-  return { loading, data };
+  return { loading, user: data };
 }

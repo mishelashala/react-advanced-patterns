@@ -1,8 +1,6 @@
-import React, { useContext, createContext } from "react";
+import React, { createContext, useContext } from "react";
 
 export const MatchContext = createContext();
-
-MatchContext.displayName = "MatchContext";
 
 export function useMatch() {
   return useContext(MatchContext);
@@ -10,6 +8,8 @@ export function useMatch() {
 
 export function Match({ value, children }) {
   return (
-    <MatchContext.Provider value={value}>{children}</MatchContext.Provider>
+    <MatchContext.Provider value={value}>
+      <>{children}</>
+    </MatchContext.Provider>
   );
 }

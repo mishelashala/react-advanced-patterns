@@ -11,7 +11,7 @@ export function UserService() {
           },
         });
         // reject(new Error("could not load user data"));
-      }, 1500);
+      }, 1000);
     });
   }
 
